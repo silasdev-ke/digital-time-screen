@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>CLEAR CLOCK | School Accessible</title>
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom config: ensure no blur/glow, pure sharp colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'neon-blue': '#00d4ff',
+            'neon-pink': '#ff3b6f',
+            'electric-purple': '#b527ff',
+            'cyber-lime': '#d4ff00',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="min-h-screen w-full bg-black flex items-center justify-center overflow-hidden">
+  <!-- Solid black background for maximum contrast. No blurry blobs. -->
+
+  <div class="relative w-full h-screen flex flex-col items-center justify-center">
+
+    <!-- Main clock panel – solid, no backdrop blur that could reduce legibility -->
+    <div class="flex flex-col items-center justify-center px-4 w-full">
+
+      <!-- Time container: no glass blur, just clean dark backing -->
+      <div class="flex flex-wrap items-baseline justify-center gap-2 md:gap-4 px-6 py-4 rounded-3xl bg-gray-950/90 border-2 border-neon-blue/80 shadow-xl">
+
+        <!-- Hours – solid neon pink, no glow -->
+        <span id="hours" class="digit text-9xl sm:text-[15rem] md:text-[20rem] lg:text-[26rem] font-black tracking-tighter text-neon-pink">00</span>
+
+        <!-- Colon – pure white, blinking, sharp -->
+        <span class="text-7xl sm:text-[12rem] md:text-[16rem] lg:text-[22rem] font-black text-white animate-colon">:</span>
+
+        <!-- Minutes – solid neon blue, no glow -->
+        <span id="minutes" class="digit text-9xl sm:text-[15rem] md:text-[20rem] lg:text-[26rem] font-black tracking-tighter text-neon-blue">00</span>
+
+        <!-- AM/PM Pill – high contrast, bright lime on dark -->
+        <div class="self-end ml-3 mb-2 md:mb-6">
+          <span id="ampm" class="inline-block px-5 py-2 text-base sm:text-2xl md:text-3xl font-bold tracking-wide text-black bg-cyber-lime rounded-full border-2 border-white shadow-md">AM</span>
+        </div>
+      </div>
+
+      <!-- Date display – simple, sharp, readable -->
+      <div class="mt-12 sm:mt-16">
+        <div id="date" class="date-text text-sm sm:text-base md:text-xl font-semibold text-gray-300 bg-gray-900/80 px-6 py-2 rounded-full border border-gray-600">
+          <!-- date injected -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Fullscreen toggle – clear, no blur, easy to see -->
+    <button id="fullscreenBtn" class="fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-2.5 bg-gray-900 border border-gray-500 rounded-full text-white hover:bg-neon-blue/20 hover:border-neon-blue transition-all duration-200 shadow-lg group">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+      <span id="fsText" class="text-sm font-medium">Fullscreen</span>
+    </button>
+  </div>
+
+  <script src="assets/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+/* Minimal custom CSS – only colon blink and base reset */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700;14..32,800;14..32,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  font-weight: 800;
+}
+
+/* Simple colon blink – no blur, just opacity change for visibility */
+@keyframes blinkColon {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-colon {
+  animation: blinkColon 1s infinite ease;
+}
+
+/* No text-shadow glows – keep numbers sharp */
+.digit {
+  text-shadow: none;
+  letter-spacing: -0.02em;
+}
+
+/* Fullscreen button icon hover only */
+.fullscreen-btn svg {
+  transition: transform 0.2s;
+}
+
+.fullscreen-btn:hover svg {
+  transform: scale(1.08);
+}
+
+/* Ensure high contrast for date */
+.date-text {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
